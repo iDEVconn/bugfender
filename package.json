@@ -1,6 +1,6 @@
 {
   "name": "@idevconn/bugfender",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "Bugfender SDK helpers with built-in PII / noise filtering and typed tags. ~120 LOC. Framework-agnostic.",
   "license": "Apache-2.0",
   "author": "iDEVconn",
