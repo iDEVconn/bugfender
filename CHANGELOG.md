@@ -1,5 +1,11 @@
 # @idevconn/bugfender
 
+## 0.3.1
+
+### Patch Changes
+
+- c92f7e7: Update dev tooling: bump in-range devDependencies, add ESLint flat config, add Prettier, add lint/format checks to CI, bump CI Node to 24. No runtime changes.
+
 ## 0.2.0
 
 ### Minor Changes
