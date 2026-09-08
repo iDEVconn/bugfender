@@ -20,7 +20,11 @@ npm install @idevconn/bugfender @bugfender/sdk
 ## Quick start
 
 ```ts
-import { initBugfender, reportError, setBugfenderDeviceKey } from "@idevconn/bugfender";
+import {
+  initBugfender,
+  reportError,
+  setBugfenderDeviceKey,
+} from "@idevconn/bugfender";
 
 // Once at app start
 initBugfender({
@@ -41,7 +45,8 @@ reportError("api", `HTTP ${err.status}`, err);
 ```ts
 import { reportError } from "@idevconn/bugfender";
 
-type AppTag = "auth" | "payment" | "invoices" | "subscriptions" | "ml" | "ui" | "api";
+type AppTag =
+  "auth" | "payment" | "invoices" | "subscriptions" | "ml" | "ui" | "api";
 
 reportError<AppTag>("payment", "PayPal capture failed", err);
 // reportError<AppTag>("typo", "..."); // ← type error
@@ -49,18 +54,18 @@ reportError<AppTag>("payment", "PayPal capture failed", err);
 
 ## API
 
-| Export                       | Purpose                                                                                   |
-| ---------------------------- | ----------------------------------------------------------------------------------------- |
-| `initBugfender(opts)`        | Initialize the SDK. Returns `false` if `appKey` is empty. Idempotent.                     |
-| `isBugfenderEnabled()`       | True after a successful init.                                                             |
-| `setBugfenderDeviceKey(id)`  | Attach / clear the current user's `user.id` device key.                                   |
-| `containsPII(text)`          | True when `text` matches any active PII pattern.                                           |
-| `reportError(tag, text, e?)` | Send an `error` log. Drops the call when uninitialized OR when text contains PII.         |
-| `reportWarning(tag, text)`   | Send a `warn` log. Same drop semantics.                                                   |
-| `reportIssue(title, body)`   | Send a high-visibility issue. Dropped if either field contains PII.                       |
-| `DEFAULT_PII_PATTERNS`       | Read-only — the default regex set. Use to build your own variant of `containsPII`.        |
-| `DEFAULT_NOISE_PATTERNS`     | Read-only — browser-cruft patterns folded into `Bugfender.init({ ignoreException })`.     |
-| `Bugfender`                  | Re-exported from `@bugfender/sdk` for escape-hatch use cases that bypass the PII filter.   |
+| Export                       | Purpose                                                                                  |
+| ---------------------------- | ---------------------------------------------------------------------------------------- |
+| `initBugfender(opts)`        | Initialize the SDK. Returns `false` if `appKey` is empty. Idempotent.                    |
+| `isBugfenderEnabled()`       | True after a successful init.                                                            |
+| `setBugfenderDeviceKey(id)`  | Attach / clear the current user's `user.id` device key.                                  |
+| `containsPII(text)`          | True when `text` matches any active PII pattern.                                         |
+| `reportError(tag, text, e?)` | Send an `error` log. Drops the call when uninitialized OR when text contains PII.        |
+| `reportWarning(tag, text)`   | Send a `warn` log. Same drop semantics.                                                  |
+| `reportIssue(title, body)`   | Send a high-visibility issue. Dropped if either field contains PII.                      |
+| `DEFAULT_PII_PATTERNS`       | Read-only — the default regex set. Use to build your own variant of `containsPII`.       |
+| `DEFAULT_NOISE_PATTERNS`     | Read-only — browser-cruft patterns folded into `Bugfender.init({ ignoreException })`.    |
+| `Bugfender`                  | Re-exported from `@bugfender/sdk` for escape-hatch use cases that bypass the PII filter. |
 
 ## License
 

@@ -60,7 +60,10 @@ describe("reportError / reportWarning / reportIssue", () => {
   it("sends tag + text when clean", async () => {
     const mod = await loadInitialized();
     mod.reportError("auth", "login failed");
-    expect(errorMock).toHaveBeenCalledWith({ tag: "auth", text: "login failed" });
+    expect(errorMock).toHaveBeenCalledWith({
+      tag: "auth",
+      text: "login failed",
+    });
   });
 
   it("appends Error.message to the text", async () => {

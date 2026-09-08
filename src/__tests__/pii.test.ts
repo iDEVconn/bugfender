@@ -32,7 +32,9 @@ describe("containsPII (default patterns)", () => {
   });
 
   it("does NOT flag UUIDs (intentional — user.id stays loggable)", () => {
-    expect(containsPII("user.id=550e8400-e29b-41d4-a716-446655440000")).toBe(false);
+    expect(containsPII("user.id=550e8400-e29b-41d4-a716-446655440000")).toBe(
+      false,
+    );
   });
 
   it("does NOT flag short hex strings", () => {
