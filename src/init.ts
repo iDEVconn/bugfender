@@ -41,8 +41,14 @@ export function initBugfender(opts: InitOptions): boolean {
   if (state.initialized) return true;
   if (!opts.appKey) return false;
 
-  const piiPatterns = [...DEFAULT_PII_PATTERNS, ...(opts.extraPiiPatterns ?? [])];
-  const noisePatterns = [...DEFAULT_NOISE_PATTERNS, ...(opts.extraNoisePatterns ?? [])];
+  const piiPatterns = [
+    ...DEFAULT_PII_PATTERNS,
+    ...(opts.extraPiiPatterns ?? []),
+  ];
+  const noisePatterns = [
+    ...DEFAULT_NOISE_PATTERNS,
+    ...(opts.extraNoisePatterns ?? []),
+  ];
   setPiiPatterns(piiPatterns);
 
   Bugfender.init({

@@ -24,7 +24,10 @@ export function reportError<T extends string = string>(
 }
 
 /** Send a warning log. Same PII guard semantics as `reportError`. */
-export function reportWarning<T extends string = string>(tag: T, text: string): void {
+export function reportWarning<T extends string = string>(
+  tag: T,
+  text: string,
+): void {
   if (!state.initialized) return;
   if (containsPII(text)) return;
   Bugfender.warn({ tag, text });
